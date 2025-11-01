@@ -1,0 +1,154 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in;
+}
+
+/* Form Styles */
+#searchForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    animation: slideIn 1s ease-out;
+}
+
+#searchForm input {
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    width: 300px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+#searchForm input:focus {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+#searchForm button {
+    padding: 12px 20px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#searchForm button:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
+/* Results Container */
+#results {
+    width: 100%;
+    max-width: 1200px;
+    animation: fadeIn 1s ease-in 0.5s both;
+}
+
+/* Section Headers */
+#results h2 {
+    color: #fff;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* TV Shows Grid */
+#results div:first-child img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#results div:first-child img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+/* Movie Info */
+#results div:last-child {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    margin-top: 20px;
+    animation: slideUp 1s ease-out 1s both;
+}
+
+#results div:last-child h3 {
+    margin-top: 0;
+    color: #fff;
+}
+
+#results div:last-child p {
+    margin: 10px 0;
+}
+
+#results div:last-child img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Error Message */
+#results p {
+    color: #ff6b6b;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #searchForm input {
+        width: 200px;
+    }
+
+    #results div:first-child img {
+        width: 150px;
+    }
+
+    #results div:last-child {
+        padding: 15px;
+    }
+}
