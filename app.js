@@ -40,7 +40,12 @@ window.onclick = function(event) {
 
 const displayTVMazeResults = (shows) => {
     const tvMazeSection = document.createElement('div');
-    tvMazeSection.innerHTML = '<h2>TV Shows</h2>';
+    const header = document.createElement('h2');
+    header.textContent = 'TV Shows';
+    tvMazeSection.appendChild(header);
+
+    const gridDiv = document.createElement('div');
+    gridDiv.classList.add('tv-shows-grid');
     for (let result of shows) {
         if (result.show.image) {
             const img = document.createElement('IMG');
@@ -48,9 +53,10 @@ const displayTVMazeResults = (shows) => {
             img.alt = result.show.name;
             img.style.cursor = 'pointer';
             img.addEventListener('click', () => showTVShowDetails(result.show));
-            tvMazeSection.append(img);
+            gridDiv.append(img);
         }
     }
+    tvMazeSection.appendChild(gridDiv);
     resultsDiv.append(tvMazeSection);
 };
 
@@ -69,7 +75,6 @@ const displayOMDbResults = (movie) => {
             const img = document.createElement('IMG');
             img.src = movie.Poster;
             img.alt = movie.Title;
-            img.style.cursor = 'pointer';
             img.addEventListener('click', () => showMovieDetails(movie));
             movieDiv.append(img);
         }
