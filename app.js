@@ -9,12 +9,12 @@ form.addEventListener('submit', async function (e) {
     try {
         // TVMaze API call
         const tvmazeConfig = { params: { q: searchTerm } };
-        const tvmazeRes = await axios.get(`http://api.tvmaze.com/search/shows`, tvmazeConfig);
+        const tvmazeRes = await axios.get(`https://api.tvmaze.com/search/shows`, tvmazeConfig);
         displayTVMazeResults(tvmazeRes.data);
 
         // OMDb API call
         const omdbConfig = { params: { t: searchTerm, apikey: 'aec0d3e2' } };
-        const omdbRes = await axios.get(`http://www.omdbapi.com/`, omdbConfig);
+        const omdbRes = await axios.get(`https://www.omdbapi.com/`, omdbConfig);
         displayOMDbResults(omdbRes.data);
     } catch (error) {
         console.error('Error fetching data:', error);
