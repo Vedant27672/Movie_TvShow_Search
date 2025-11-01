@@ -56,7 +56,18 @@ const displayTVMazeResults = (shows) => {
             gridDiv.append(img);
         }
     }
-    tvMazeSection.appendChild(gridDiv);
+
+    if (gridDiv.children.length === 0) {
+        const noResultsMsg = document.createElement('p');
+        noResultsMsg.textContent = 'No TV Show found';
+        noResultsMsg.style.color = '#ff6b6b';
+        noResultsMsg.style.textAlign = 'center';
+        noResultsMsg.style.fontWeight = 'bold';
+        tvMazeSection.appendChild(noResultsMsg);
+    } else {
+        tvMazeSection.appendChild(gridDiv);
+    }
+
     resultsDiv.append(tvMazeSection);
 };
 
@@ -80,7 +91,12 @@ const displayOMDbResults = (movie) => {
         }
         omdbSection.append(movieDiv);
     } else {
-        omdbSection.innerHTML += '<p>No movie found with that title.</p>';
+        const noResultsMsg = document.createElement('p');
+        noResultsMsg.textContent = 'No movie found with that title.';
+        noResultsMsg.style.color = '#ff6b6b';
+        noResultsMsg.style.textAlign = 'center';
+        noResultsMsg.style.fontWeight = 'bold';
+        omdbSection.append(noResultsMsg);
     }
     resultsDiv.append(omdbSection);
 };
